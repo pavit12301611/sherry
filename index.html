@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Sherry · 3D Portfolio</title>
+  <meta name="description" content="A fun, 3D, mobile-only portfolio. Drag, poke, hold — it all reacts." />
+  <meta name="theme-color" content="#0a0618" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='35%25' r='75%25'%3E%3Cstop offset='0%25' stop-color='%23ff9ecb'/%3E%3Cstop offset='100%25' stop-color='%237c5cff'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='42' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="importmap">
+    { "imports": { "three": "/vendor/three.module.js" } }
+  </script>
+</head>
+<body>
+  <!-- 3D background canvas (fixed) -->
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <!-- hold-anything easter egg indicator -->
+  <div id="hold-ring" hidden aria-hidden="true"></div>
+
+  <!-- top bar -->
+  <header class="topbar">
+    <button id="logo" class="logo" aria-label="Sherry — home">
+      <span>S</span><span class="dot">.</span>
+    </button>
+    <button id="sound-toggle" class="chip" aria-label="Toggle sound">🔊</button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+      <div class="hero-inner">
+        <p id="hello" class="hello"></p>
+        <h1 id="name" class="name" aria-label="Sherry"></h1>
+        <p id="role" class="role"></p>
+        <p id="tagline" class="tagline"></p>
+        <div class="swipe-hint" aria-hidden="true">
+          <span class="swipe-hint-text">swipe</span>
+          <span class="chev">﹀</span>
+          <span class="chev c2">﹀</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="card reveal" id="about-card"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="sec-title reveal">What I play with <span class="sec-emoji">🧪</span></h2>
+      <div class="marquee" id="marquee" aria-label="skills"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects-section" class="section">
+      <h2 class="sec-title reveal">Things I've made <span class="sec-emoji">🚀</span></h2>
+      <div class="projects" id="projects"></div>
+      <p class="drag-hint reveal">← drag →</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <h2 class="sec-title reveal">Say hi <span class="sec-emoji">👋</span></h2>
+      <p class="contact-sub reveal">Got a wild idea? My inbox is always open for fun projects.</p>
+      <div id="contact-buttons"></div>
+      <footer class="footer">
+        <span>© 2026 <span id="foot-name"></span> · made with 🤙 + three.js</span>
+        <span class="psst">psst — hold anywhere on the blob…</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- toast -->
+  <div id="toast" role="status"></div>
+
+  <!-- mobile-only guard for desktop -->
+  <div id="desktop-guard" aria-hidden="true">
+    <div class="dg-inner">
+      <div class="dg-phone">
+        <div class="dg-screen">
+          <div class="dg-blob"></div>
+          <div class="dg-line"></div>
+          <div class="dg-line short"></div>
+        </div>
+      </div>
+      <h2>This party is mobile-only 📱</h2>
+      <p>I designed it for the palm of your hand.<br />Open it on your phone — or try your browser's<br />device mode — to see the good stuff.</p>
+    </div>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
