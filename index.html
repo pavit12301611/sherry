@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Sherry · 3D Portfolio</title>
   <meta name="description" content="A fun, 3D, mobile-only portfolio. Drag, poke, hold — it all reacts." />
   <meta name="theme-color" content="#0a0618" />
@@ -21,6 +21,9 @@
 <body>
   <!-- 3D background canvas (fixed) -->
   <canvas id="scene" aria-hidden="true"></canvas>
+
+  <!-- dark veil: keeps text readable over the 3D scene -->
+  <div id="scrim" aria-hidden="true"></div>
 
   <!-- hold-anything easter egg indicator -->
   <div id="hold-ring" hidden aria-hidden="true"></div>
